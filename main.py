@@ -31,12 +31,12 @@ app = Client("JayBee", bot_token=bot_token, api_id=api, api_hash=hash, workers=w
 
 @app.on_message(filters.command('start'))
 def start(client, message):
-    kb = [[InlineKeyboardButton('Channel 🛡', url=chnnl),InlineKeyboardButton('Repo 🔰', url="https://github.com/TerminalWarlord/TikTok-Downloader-Bot/")]]
+    kb = [[InlineKeyboardButton('Canal🛡', url=chnnl),InlineKeyboardButton('Groupe🔰', url="https://t.me/+yvQ1dnyyCuE3OTI0")]]
     reply_markup = InlineKeyboardMarkup(kb)
     app.send_message(chat_id=message.from_user.id, text=f"Salut, C'est moi **TikTok Downloader Bot**.\nJe peux télécharger des vidéos TikTok sans limite.\n\n"
                           "__**Développeur :**__ __@CodingTeam__\n"
                           "__**Groupe :**__ __Coding Team__\n"
-                          "__**Framework :**__ __🔥 Pyrogram__",
+                          "__**Langue :**__ __🔥Python3__",
                      parse_mode='md',
                      reply_markup=reply_markup)
 
@@ -45,10 +45,10 @@ def start(client, message):
 
 @app.on_message(filters.command('help'))
 def help(client, message):
-    kb = [[InlineKeyboardButton('Channel 🛡', url=chnnl),InlineKeyboardButton('Repo 🔰', url="https://github.com/TerminalWarlord/TikTok-Downloader-Bot/")]]
+    kb = [[InlineKeyboardButton('Canal🛡', url=chnnl),InlineKeyboardButton('Groupe🔰', url="https://t.me/+yvQ1dnyyCuE3OTI0")]]
     reply_markup = InlineKeyboardMarkup(kb)
-    app.send_message(chat_id=message.from_user.id, text=f"Hello there, I am **TikTok Downloader Bot**.\nI can download any TikTok video from a given link.\n\n"
-                                            "__Send me a TikTok video link__",
+    app.send_message(chat_id=message.from_user.id, text=f"Salut,Je suis **TikTok Downloader Bot**.\nJe peux télécharger des vidéos Tiktok en me donnant tous simplement le lien.\n\n"
+                                            "__Envoyer moi le lien du vidéo__",
                      parse_mode='md',
                      reply_markup=reply_markup)
 
@@ -100,23 +100,23 @@ def tiktok_dl(client, message):
                 if show == 1:
                     try:
                         a.edit(f'__**URL :**__ __{message.text}__\n'
-                               f'__**Total Size :**__ __{total_size} MB__\n'
-                               f'__**Downloaded :**__ __{percent}%__\n',
+                               f'__**Taille :**__ __{total_size} MB__\n'
+                               f'__**Téléchargement :**__ __{percent}%__\n',
                                disable_web_preview=False)
                     except:
                         pass
                     if percent == 100:
                         show = 0
 
-        a.edit(f'__Downloaded to the server!\n'
-               f'Uploading to Telegram Now ⏳__')
+        a.edit(f'__Telechargement dans le serveur!\n'
+               f'Envoie en cours vers Telegram⏳__')
         start = time.time()
         title = filename
         app.send_document(chat_id=message.chat.id,
                           document=f"./{directory}/{filename}",
-                          caption=f"**File :** __{filename}__\n"
-                          f"**Size :** __{total_size} MB__\n\n"
-                          f"__Uploaded by @{BOT_URL}__",
+                          caption=f"**Fichier :** __{filename}__\n"
+                          f"**Taille :** __{total_size} MB__\n\n"
+                          f"__Télécharger par @{BOT_URL}__",
                           file_name=f"{directory}",
                           parse_mode='md',
                           progress=progress,
